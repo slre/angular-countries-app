@@ -1,0 +1,22 @@
+<h2>By Capital</h2>
+<hr>
+
+<main class="row">
+    <section class="col">
+       <app-country-input
+        (onEnter)="search( $event )"
+        placeholder="Search capital..."
+        >
+       </app-country-input>
+    </section>
+</main>
+<hr>
+<section class="alert alert-danger" *ngIf="flagError">
+    No matches with the term <strong>{{term}}</strong>
+</section>
+
+<section *ngIf="!flagError && countries.length !==0">
+    <div class="col">
+        <app-country-table [countries]="countries"></app-country-table>
+    </div>
+</section>
